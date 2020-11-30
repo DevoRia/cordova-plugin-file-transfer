@@ -220,7 +220,9 @@ exec(win, fail, 'FileTransfer', 'upload',
                 for (var key in params) {
                     if (Object.prototype.hasOwnProperty.call(params, key)) {
                         multipartParams += LINE_START + BOUNDARY + LINE_END;
-                        multipartParams += 'Content-Disposition: form-data; name="' + key + '"';
+                        multipartParams += 'Content-Disposition: form-data; name="' + key + '";';
+                        multipartParams += LINE_END;
+                        multipartParams += 'Content-Type: application/json';
                         multipartParams += LINE_END + LINE_END;
                         multipartParams += params[key];
                         multipartParams += LINE_END;
